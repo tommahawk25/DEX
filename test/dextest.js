@@ -1,8 +1,3 @@
-//ETH deposit >= buy order value
-//Token deposit >= sell order amount
-//Buy order book should be ordered from highest to lowest
-//Sell order book should be ordered from lowest to highest
-
 const Dex = artifacts.require("Dex");
 const Link = artifacts.require("Link");
 const truffleAssert = require("truffle-assertions");
@@ -101,8 +96,4 @@ contract.skip("Dex", accounts => {
             assert(orderbook[i].price <= orderbook[i+1].price, "not right order in sell book")
         }      
     })
-
-
-
-
 })
