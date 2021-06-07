@@ -67,10 +67,7 @@ contract Dex is Wallet {
                 i--; 
             } 
         }
-
-
         nextOrderId++;
-
     }
 
     function createMarketOrder(Side side, bytes32 ticker, uint256 amount) public {
@@ -120,9 +117,6 @@ contract Dex is Wallet {
                 balances[msg.sender]["ETH"] += amountToTrade * orders[i].price;
                 balances[orders[i].trader]["ETH"] -= amountToTrade * orders[i].price;
             }
-
-            //IF WE DONT FULFILL MARKET ORDER AND LIMIT ORDERS ARE GONE, WE NEED TO STORE MARKET ORDER AND UPDATE THE AMOUNT LEFT??? 
-            // orderBook[ticker][uint(side)][i].amount = leftToFill;  
         }
         
         //loop through the orderbook and remove 100% filled orders
@@ -133,7 +127,5 @@ contract Dex is Wallet {
             }
             orders.pop();
         }
-
     }
-
 }
